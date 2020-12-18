@@ -14,7 +14,6 @@ public class Reservation {
         this.spot = spot;
     }
 
-
     public UUID getId() {
         return id;
     }
