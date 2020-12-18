@@ -1,5 +1,6 @@
 package pl.pzp.Camping.dao;
 
+import org.springframework.stereotype.Repository;
 import pl.pzp.Camping.model.CampingSpot;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository("memoryCampingSpot")
 public class MemoryCampingSpotDao implements CampingSpotDao {
 
     private static List<CampingSpot> CS = new ArrayList<>();
