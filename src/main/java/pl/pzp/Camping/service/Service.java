@@ -1,6 +1,7 @@
 package pl.pzp.Camping.service;
 
 import pl.pzp.Camping.dao.Dao;
+import pl.pzp.Camping.model.CampingSpot;
 import pl.pzp.Camping.model.Client;
 
 public class Service {
@@ -14,4 +15,6 @@ public class Service {
     public int addClient(Client client) {
         return dao.insertClient(client);
     }
+
+    public int addCampingSpot(CampingSpot campingSpot) { return dao.insertCampingSpot(campingSpot); }
 }

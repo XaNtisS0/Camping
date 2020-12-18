@@ -1,7 +1,10 @@
 package pl.pzp.Camping.dao;
 
+import pl.pzp.Camping.model.CampingSpot;
 import pl.pzp.Camping.model.Client;
+import pl.pzp.Camping.model.Reservation;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface Dao {
@@ -11,4 +14,15 @@ public interface Dao {
         UUID id = UUID.randomUUID();
         return insertClient(id, client);
     }
+
+    int insertCampingSpot(UUID id, CampingSpot campingSpot);
+
+    default int insertCampingSpot(CampingSpot campingSpot) {
+        UUID id = UUID.randomUUID();
+        return insertCampingSpot(id,campingSpot);
+    }
+
+    int insertReservation(List<Client> clients, CampingSpot campingSpot);
+
+
 }
