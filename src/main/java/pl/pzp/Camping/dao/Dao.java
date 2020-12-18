@@ -19,10 +19,14 @@ public interface Dao {
 
     default int insertCampingSpot(CampingSpot campingSpot) {
         UUID id = UUID.randomUUID();
-        return insertCampingSpot(id,campingSpot);
+        return insertCampingSpot(id, campingSpot);
     }
 
-    int insertReservation(List<Client> clients, CampingSpot campingSpot);
+    int insertReservation(UUID id, Reservation reservation);
 
+    default int insertReservation(Reservation reservation) {
+        UUID id = UUID.randomUUID();
+        return insertReservation(id, reservation);
+    }
 
 }

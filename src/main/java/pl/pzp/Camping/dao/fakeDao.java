@@ -27,10 +27,11 @@ public class fakeDao implements Dao {
     }
 
     @Override
-    public int insertReservation(List<Client> clients, CampingSpot campingSpot) {
-        RL.add(clients, campingSpot);
+    public int insertReservation(UUID id, Reservation reservation) {
+        RL.add(new Reservation(id,reservation.getClients(), reservation.getSpot()));
         return 1;
     }
+
 
 
 }
