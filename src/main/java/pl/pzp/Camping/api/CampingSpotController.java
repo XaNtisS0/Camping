@@ -3,7 +3,6 @@ package pl.pzp.Camping.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.CampingSpot;
-import pl.pzp.Camping.model.Client;
 import pl.pzp.Camping.service.CampingSpotService;
 
 import java.util.List;
@@ -31,14 +30,15 @@ public class CampingSpotController {
         return campingSpotService.getAllCampingSpots();
     }
 
-    @GetMapping
-    public CampingSpot getCampingSpotById(UUID id) {
+    @GetMapping(path = {"id"})
+    public CampingSpot getCampingSpotById(@PathVariable("id") UUID id) {
         return campingSpotService.getCampingSpotById(id)
                 .orElse(null);
     }
 
-    @DeleteMapping
-    public void deleteCampingSpotById(UUID id) {
+    @DeleteMapping(path = {"id"})
+    public void deleteCampingSpotById(@PathVariable("id") UUID id) {
         campingSpotService.deleteCampingSpotById(id);
     }
+
 }

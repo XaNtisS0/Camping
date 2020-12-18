@@ -30,14 +30,14 @@ public class ClientController {
         return clientService.getAllClients();
     }
 
-    @GetMapping
-    public Client getClientById(UUID id) {
+    @GetMapping(path = {"id"})
+    public Client getClientById(@PathVariable("id") UUID id) {
         return clientService.getClientById(id)
                 .orElse(null);
     }
 
-    @DeleteMapping
-    public void deleteClientById(UUID id) {
+    @DeleteMapping(path = {"id"})
+    public void deleteClientById(@PathVariable("id") UUID id) {
         clientService.deleteClientById(id);
     }
 

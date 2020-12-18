@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("api/reservation")
+
 @RestController
 public class ReservationController {
 
@@ -29,13 +30,14 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @GetMapping
-    public Reservation getReservationById(UUID id) {
-        return reservationService.getReservationById(id).orElse(null);
+    @GetMapping(path = {"id"})
+    public Reservation getReservationById(@PathVariable("id") UUID id) {
+        return reservationService.getReservationById(id)
+                .orElse(null);
     }
 
-    @DeleteMapping
-    public void deleteReservationById(UUID id) {
+    @DeleteMapping(path = {"id"})
+    public void deleteReservationById(@PathVariable("id") UUID id) {
         reservationService.deleteReservationById(id);
     }
 }
