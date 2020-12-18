@@ -5,6 +5,7 @@ import pl.pzp.Camping.model.Client;
 import pl.pzp.Camping.model.Reservation;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface Dao {
@@ -28,5 +29,15 @@ public interface Dao {
         UUID id = UUID.randomUUID();
         return insertReservation(id, reservation);
     }
+
+    Optional<Client> selectClientById(UUID id);
+    Optional<CampingSpot> selectCampingSpotById(UUID id);
+    Optional<Reservation> selectReservationById(UUID id);
+
+    int deleteClientById(UUID id);
+
+    int deleteCampingSpotById(UUID id);
+
+    int deleteReservation(UUID id);
 
 }
