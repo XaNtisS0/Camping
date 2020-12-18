@@ -3,6 +3,7 @@ package pl.pzp.Camping.model;
 import java.util.UUID;
 
 public class Client {
+
     private final UUID id;
     private final String name;
     private final int age;
@@ -20,8 +21,8 @@ public class Client {
     public String getName() {
         return name;
     }
-
     public int getAge() {
         return age;
     }
+
 }

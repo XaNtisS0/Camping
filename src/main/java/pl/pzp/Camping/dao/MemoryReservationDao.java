@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class MemoryReservationDao implements ReservationDao{
+public class MemoryReservationDao implements ReservationDao {
 
     private static List<Reservation> RL = new ArrayList<>();
 

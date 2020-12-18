@@ -39,4 +39,5 @@ public class MemoryCampingSpotDao implements CampingSpotDao {
             return 1;
         }
     }
+
 }

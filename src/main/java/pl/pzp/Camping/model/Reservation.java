@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class Reservation {
+
     private UUID id;
     private final List<Client> clients;
     private final CampingSpot spot;
@@ -25,4 +26,5 @@ public class Reservation {
     public CampingSpot getSpot() {
         return spot;
     }
+
 }

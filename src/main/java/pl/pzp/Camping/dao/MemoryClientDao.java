@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class MemoryClientDao implements ClientDao{
+public class MemoryClientDao implements ClientDao {
 
     private static List<Client> CL = new ArrayList<>();
 
@@ -43,4 +43,5 @@ public class MemoryClientDao implements ClientDao{
             return 1;
         }
     }
+
 }

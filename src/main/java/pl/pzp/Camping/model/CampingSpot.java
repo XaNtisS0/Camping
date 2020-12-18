@@ -24,4 +24,5 @@ public class CampingSpot {
     public int getGuestsLimit() {
         return guestsLimit;
     }
+
 }

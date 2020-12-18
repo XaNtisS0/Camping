@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ReservationDao {
+
     int insertReservation(UUID id, Reservation reservation);
 
     default int insertReservation(Reservation reservation) {
@@ -18,6 +19,6 @@ public interface ReservationDao {
 
     Optional<Reservation> selectReservationById(UUID id);
 
-
     int deleteReservation(UUID id);
+
 }

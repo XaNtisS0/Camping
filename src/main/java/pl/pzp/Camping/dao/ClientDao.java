@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface ClientDao  {
+public interface ClientDao {
 
     int insertClient(UUID id, Client client);
 
@@ -20,4 +20,5 @@ public interface ClientDao  {
     Optional<Client> selectClientById(UUID id);
 
     int deleteClientById(UUID id);
+
 }
