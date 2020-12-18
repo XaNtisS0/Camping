@@ -22,7 +22,7 @@ public class CampingSpotController {
     }
 
     @PostMapping
-    public void addClient(@RequestBody CampingSpot campingSpot) {
+    public void addCampingSpot(@RequestBody CampingSpot campingSpot) {
         campingSpotService.addCampingSpot(campingSpot);
     }
 
