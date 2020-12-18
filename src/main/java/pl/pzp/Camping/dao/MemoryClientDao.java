@@ -1,5 +1,6 @@
 package pl.pzp.Camping.dao;
 
+import org.springframework.stereotype.Repository;
 import pl.pzp.Camping.model.Client;
 
 import java.util.ArrayList;
@@ -7,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+
+@Repository("memoryClient")
 public class MemoryClientDao implements ClientDao {
 
     private static List<Client> CL = new ArrayList<>();

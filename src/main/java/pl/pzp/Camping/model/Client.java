@@ -1,5 +1,7 @@
 package pl.pzp.Camping.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.UUID;
 
 public class Client {
@@ -8,7 +10,9 @@ public class Client {
     private final String name;
     private final int age;
 
-    public Client(UUID id, String name, int age) {
+    public Client(@JsonProperty("id") UUID id,
+                  @JsonProperty("name") String name,
+                  @JsonProperty("age") int age) {
         this.id = id;
         this.name = name;
         this.age = age;
