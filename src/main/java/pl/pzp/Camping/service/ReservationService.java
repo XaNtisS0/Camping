@@ -1,5 +1,8 @@
 package pl.pzp.Camping.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import pl.pzp.Camping.dao.ReservationDao;
 import pl.pzp.Camping.model.Reservation;
 
@@ -7,11 +10,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class ReservationService {
 
     private final ReservationDao reservationDao;
 
-    public ReservationService(ReservationDao reservationDao) {
+    @Autowired
+    public ReservationService(@Qualifier("memoryReservation") ReservationDao reservationDao) {
         this.reservationDao = reservationDao;
     }
 

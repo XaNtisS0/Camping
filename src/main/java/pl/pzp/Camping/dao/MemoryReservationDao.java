@@ -1,5 +1,6 @@
 package pl.pzp.Camping.dao;
 
+import org.springframework.stereotype.Repository;
 import pl.pzp.Camping.model.Reservation;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Repository("memoryReservation")
 public class MemoryReservationDao implements ReservationDao {
 
     private static List<Reservation> RL = new ArrayList<>();

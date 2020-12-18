@@ -21,12 +21,20 @@ public class CampingSpotService {
         this.campingSpotDao = campingSpotDao;
     }
 
-    public int addCampingSpot(CampingSpot campingSpot) { return campingSpotDao.insertCampingSpot(campingSpot); }
+    public int addCampingSpot(CampingSpot campingSpot) {
+        return campingSpotDao.insertCampingSpot(campingSpot);
+    }
 
-    public List<CampingSpot> getAllCampingSpots() { return campingSpotDao.getAllCampingSpots(); }
+    public List<CampingSpot> getAllCampingSpots() {
+        return campingSpotDao.getAllCampingSpots();
+    }
 
-    public Optional<CampingSpot> getCampingSpotById(UUID id) { return campingSpotDao.selectCampingSpotById(id); }
+    public Optional<CampingSpot> getCampingSpotById(UUID id) {
+        return campingSpotDao.selectCampingSpotById(id);
+    }
 
-    public int deleteCampingSpotById(UUID id) {return campingSpotDao.deleteCampingSpotById(id); }
+    public int deleteCampingSpotById(UUID id) {
+        return campingSpotDao.deleteCampingSpotById(id);
+    }
 
 }
