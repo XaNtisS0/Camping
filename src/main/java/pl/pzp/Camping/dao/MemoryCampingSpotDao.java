@@ -2,6 +2,7 @@ package pl.pzp.Camping.dao;
 
 import org.springframework.stereotype.Repository;
 import pl.pzp.Camping.model.CampingSpot;
+import pl.pzp.Camping.model.Reservation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,25 @@ public class MemoryCampingSpotDao implements CampingSpotDao {
             CS.remove(campingSpotOptional.get());
             return 1;
         }
+    }
+
+    @Override
+    public int updateCampingSpotById(UUID id, CampingSpot campingSpotToUpdate) {
+        return selectCampingSpotById(id)
+                .map(reservation -> {
+                    int indexOfCampingSpotToUpdate = CS.indexOf(reservation);
+                    if (indexOfCampingSpotToUpdate >= 0) {
+                        CS.set(indexOfCampingSpotToUpdate,
+                                new CampingSpot(
+                                        id,
+                                        campingSpotToUpdate.getBasePrice(),
+                                        campingSpotToUpdate.getGuestsLimit()
+                                ));
+                        return 1;
+                    }
+                    return 0;
+                })
+                .orElse(0);
     }
 
 }

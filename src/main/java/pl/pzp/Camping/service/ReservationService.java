@@ -36,4 +36,8 @@ public class ReservationService {
         return reservationDao.deleteReservation(id);
     }
 
+    public int updateReservationById(UUID id, Reservation reservationToUpdate) {
+        return reservationDao.updateReservationById(id, reservationToUpdate);
+    }
+
 }

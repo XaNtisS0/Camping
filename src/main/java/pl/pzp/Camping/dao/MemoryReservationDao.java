@@ -42,4 +42,23 @@ public class MemoryReservationDao implements ReservationDao {
         }
     }
 
+    @Override
+    public int updateReservationById(UUID id, Reservation reservationToUpdate) {
+        return selectReservationById(id)
+                .map(reservation -> {
+                    int indexOfReservationToUpdate = RL.indexOf(reservation);
+                    if (indexOfReservationToUpdate >= 0) {
+                        RL.set(indexOfReservationToUpdate,
+                                new Reservation(
+                                        id,
+                                        reservationToUpdate.getClients(),
+                                        reservationToUpdate.getSpot()
+                                ));
+                        return 1;
+                    }
+                    return 0;
+                })
+                .orElse(0);
+    }
+
 }

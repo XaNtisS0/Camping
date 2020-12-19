@@ -40,4 +40,9 @@ public class ReservationController {
     public void deleteReservationById(@PathVariable("id") UUID id) {
         reservationService.deleteReservationById(id);
     }
+
+    @PutMapping(path = "{id}")
+    public void updateReservationById(@PathVariable("id") UUID id, @RequestBody Reservation reservation) {
+        reservationService.updateReservationById(id, reservation);
+    }
 }

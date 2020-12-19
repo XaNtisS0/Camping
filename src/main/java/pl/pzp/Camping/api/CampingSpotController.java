@@ -30,7 +30,7 @@ public class CampingSpotController {
         return campingSpotService.getAllCampingSpots();
     }
 
-    @GetMapping(path = "{id}" )
+    @GetMapping(path = "{id}")
     public CampingSpot getCampingSpotById(@PathVariable("id") UUID id) {
         return campingSpotService.getCampingSpotById(id)
                 .orElse(null);
@@ -39,6 +39,11 @@ public class CampingSpotController {
     @DeleteMapping(path = "{id}")
     public void deleteCampingSpotById(@PathVariable("id") UUID id) {
         campingSpotService.deleteCampingSpotById(id);
+    }
+
+    @PutMapping(path = "{id}")
+    public void updateCampingSpotById(@PathVariable("id") UUID id, @RequestBody CampingSpot campingSpotToUpdate){
+        campingSpotService.updateCampingSpotById(id, campingSpotToUpdate);
     }
 
 }

@@ -21,4 +21,6 @@ public interface ReservationDao {
 
     int deleteReservation(UUID id);
 
+    int updateReservationById(UUID id, Reservation reservationToUpdate);
+
 }

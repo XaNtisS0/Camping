@@ -21,4 +21,6 @@ public interface CampingSpotDao {
 
     int deleteCampingSpotById(UUID id);
 
+    int updateCampingSpotById(UUID id, CampingSpot campingSpotToUpdate);
+
 }
