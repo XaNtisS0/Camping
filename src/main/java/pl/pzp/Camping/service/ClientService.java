@@ -29,4 +29,6 @@ public class ClientService {
 
     public int deleteClientById(UUID id) {return clientDao.deleteClientById(id); }
 
+    public int updateClientById(UUID id, Client clientToUpdate) { return clientDao.updateClientById(id, clientToUpdate); }
+
 }

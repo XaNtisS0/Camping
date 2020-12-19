@@ -41,4 +41,8 @@ public class ClientController {
         clientService.deleteClientById(id);
     }
 
+    public void clientToUpdateById(@PathVariable("id") UUID id,@RequestBody Client clientToUpdate ) {
+        clientService.updateClientById(id, clientToUpdate);
+    }
+
 }

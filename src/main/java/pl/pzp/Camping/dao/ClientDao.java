@@ -21,4 +21,6 @@ public interface ClientDao {
 
     int deleteClientById(UUID id);
 
+    int updateClientById(UUID id, Client clientToUpdate);
+
 }

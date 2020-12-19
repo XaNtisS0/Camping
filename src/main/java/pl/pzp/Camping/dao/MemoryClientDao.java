@@ -43,4 +43,19 @@ public class MemoryClientDao implements ClientDao {
         }
     }
 
+    @Override
+    public int updateClientById(UUID id, Client clientToUpdate) {
+       return selectClientById(id)
+               .map(client1 -> {
+                   int indexOfClientToUpdate = CL.indexOf(client1);
+                   if (indexOfClientToUpdate >=0 ) {
+                       CL.set(indexOfClientToUpdate
+                       ,new Client(id,client1.getName(),client1.getAge()));
+                       return 1;
+                   }
+                   return 0;
+               })
+               .orElse(0);
+    }
+
 }
