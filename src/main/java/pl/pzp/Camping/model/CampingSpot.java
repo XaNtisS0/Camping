@@ -1,7 +1,7 @@
 package pl.pzp.Camping.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.beans.factory.annotation.Autowired;
+
 
 import java.util.UUID;
 

@@ -16,12 +16,8 @@ public class MemoryClientDao implements ClientDao {
 
     @Override
     public int insertClient(UUID id, Client client) {
-        return 0;
-    }
-
-    @Override
-    public int insertClient(Client client) {
-        return 0;
+        CL.add(new Client(id, client.getName(), client.getAge()));
+        return 1;
     }
 
     @Override
