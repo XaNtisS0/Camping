@@ -41,6 +41,7 @@ public class ClientController {
         clientService.deleteClientById(id);
     }
 
+    @PutMapping(path = "{id}")
     public void clientToUpdateById(@PathVariable("id") UUID id,@RequestBody Client clientToUpdate ) {
         clientService.updateClientById(id, clientToUpdate);
     }
