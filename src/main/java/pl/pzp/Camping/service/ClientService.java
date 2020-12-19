@@ -4,7 +4,7 @@ package pl.pzp.Camping.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import pl.pzp.Camping.dao.ClientDao;
+import pl.pzp.Camping.dao.interfaces.ClientDao;
 import pl.pzp.Camping.model.Client;
 
 import java.util.List;

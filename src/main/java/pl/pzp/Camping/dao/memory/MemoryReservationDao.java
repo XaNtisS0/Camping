@@ -1,6 +1,7 @@
-package pl.pzp.Camping.dao;
+package pl.pzp.Camping.dao.memory;
 
 import org.springframework.stereotype.Repository;
+import pl.pzp.Camping.dao.interfaces.ReservationDao;
 import pl.pzp.Camping.model.Reservation;
 
 import java.util.ArrayList;

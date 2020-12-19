@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.Reservation;
 import pl.pzp.Camping.service.ReservationService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,7 +30,7 @@ public class ReservationController {
     }
 
     @GetMapping(path = "{id}")
-    public Reservation getReservationById(@PathVariable("id") UUID id) {
+    public Reservation getReservationById(@Valid @PathVariable("id") UUID id) {
         return reservationService.getReservationById(id)
                 .orElse(null);
     }
@@ -40,7 +41,7 @@ public class ReservationController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateReservationById(@PathVariable("id") UUID id, @RequestBody Reservation reservation) {
+    public void updateReservationById(@PathVariable("id") UUID id, @Valid @RequestBody Reservation reservation) {
         reservationService.updateReservationById(id, reservation);
     }
 }

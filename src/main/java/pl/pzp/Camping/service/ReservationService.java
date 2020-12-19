@@ -3,7 +3,7 @@ package pl.pzp.Camping.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import pl.pzp.Camping.dao.ReservationDao;
+import pl.pzp.Camping.dao.interfaces.ReservationDao;
 import pl.pzp.Camping.model.Reservation;
 
 import java.util.List;

@@ -43,7 +43,7 @@ public class ClientController {
     }
 
     @PutMapping(path = "{id}")
-    public void clientToUpdateById(@PathVariable("id") UUID id,@RequestBody Client clientToUpdate ) {
+    public void clientToUpdateById(@PathVariable("id") UUID id, @Valid @RequestBody Client clientToUpdate ) {
         clientService.updateClientById(id, clientToUpdate);
     }
 

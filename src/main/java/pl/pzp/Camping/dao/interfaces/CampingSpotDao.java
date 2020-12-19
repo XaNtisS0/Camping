@@ -1,4 +1,4 @@
-package pl.pzp.Camping.dao;
+package pl.pzp.Camping.dao.interfaces;
 
 import pl.pzp.Camping.model.CampingSpot;
 

@@ -22,7 +22,7 @@ public class CampingSpotController {
     }
 
     @PostMapping
-    public void addCampingSpot(@RequestBody CampingSpot campingSpot) {
+    public void addCampingSpot(@Valid @RequestBody CampingSpot campingSpot) {
         campingSpotService.addCampingSpot(campingSpot);
     }
 
@@ -43,7 +43,7 @@ public class CampingSpotController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateCampingSpotById(@PathVariable("id") UUID id, @RequestBody CampingSpot campingSpotToUpdate){
+    public void updateCampingSpotById(@PathVariable("id") UUID id, @Valid @RequestBody CampingSpot campingSpotToUpdate) {
         campingSpotService.updateCampingSpotById(id, campingSpotToUpdate);
     }
 
