@@ -30,13 +30,13 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @GetMapping(path = {"id"})
+    @GetMapping(path = "{id}")
     public Reservation getReservationById(@PathVariable("id") UUID id) {
         return reservationService.getReservationById(id)
                 .orElse(null);
     }
 
-    @DeleteMapping(path = {"id"})
+    @DeleteMapping(path = "{id}")
     public void deleteReservationById(@PathVariable("id") UUID id) {
         reservationService.deleteReservationById(id);
     }
