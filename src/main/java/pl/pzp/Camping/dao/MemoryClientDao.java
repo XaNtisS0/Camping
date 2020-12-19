@@ -46,11 +46,15 @@ public class MemoryClientDao implements ClientDao {
     @Override
     public int updateClientById(UUID id, Client clientToUpdate) {
        return selectClientById(id)
-               .map(client1 -> {
-                   int indexOfClientToUpdate = CL.indexOf(client1);
+               .map(client -> {
+                   int indexOfClientToUpdate = CL.indexOf(client);
                    if (indexOfClientToUpdate >=0 ) {
                        CL.set(indexOfClientToUpdate
-                       ,new Client(id,client1.getName(),client1.getAge()));
+                       ,new Client(
+                               id,
+                               clientToUpdate.getName(),
+                               clientToUpdate.getAge()
+                               ));
                        return 1;
                    }
                    return 0;
