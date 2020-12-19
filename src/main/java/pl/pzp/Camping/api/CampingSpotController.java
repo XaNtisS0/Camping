@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.CampingSpot;
 import pl.pzp.Camping.service.CampingSpotService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 

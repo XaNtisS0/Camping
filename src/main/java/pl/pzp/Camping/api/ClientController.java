@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.Client;
 import pl.pzp.Camping.service.ClientService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,7 +22,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public void addClient(@RequestBody Client client) {
+    public void addClient(@Valid @RequestBody Client client) {
         clientService.addClient(client);
     }
 

@@ -21,14 +21,24 @@ public class ClientService {
         this.clientDao = clientDao;
     }
 
-    public int addClient(Client client) { return clientDao.insertClient(client); }
+    public int addClient(Client client) {
+        return clientDao.insertClient(client);
+    }
 
-    public List<Client> getAllClients() { return clientDao.getAllClients(); }
+    public List<Client> getAllClients() {
+        return clientDao.getAllClients();
+    }
 
-    public Optional<Client> getClientById(UUID id) { return clientDao.selectClientById(id); }
+    public Optional<Client> getClientById(UUID id) {
+        return clientDao.selectClientById(id);
+    }
 
-    public int deleteClientById(UUID id) {return clientDao.deleteClientById(id); }
+    public int deleteClientById(UUID id) {
+        return clientDao.deleteClientById(id);
+    }
 
-    public int updateClientById(UUID id, Client clientToUpdate) { return clientDao.updateClientById(id, clientToUpdate); }
+    public int updateClientById(UUID id, Client clientToUpdate) {
+        return clientDao.updateClientById(id, clientToUpdate);
+    }
 
 }
