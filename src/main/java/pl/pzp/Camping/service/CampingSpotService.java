@@ -33,7 +33,9 @@ public class CampingSpotService {
         return campingSpotDao.selectCampingSpotById(id);
     }
 
-    public int deleteCampingSpotById(UUID id) { return campingSpotDao.deleteCampingSpotById(id);    }
+    public int deleteCampingSpotById(UUID id) {
+        return campingSpotDao.deleteCampingSpotById(id);
+    }
 
     public int updateCampingSpotById(UUID id, CampingSpot campingSpot) {
         return campingSpotDao.updateCampingSpotById(id, campingSpot);

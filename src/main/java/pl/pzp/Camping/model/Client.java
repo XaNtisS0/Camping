@@ -11,10 +11,9 @@ import java.util.UUID;
 public class Client {
 
     private final UUID id;
-    @NotBlank
+    @NotBlank(message = "Name can't be blank.")
     private final String name;
     @Min(1)
-    @NotEmpty
     private final int age;
 
     public Client(@JsonProperty("id") UUID id,
