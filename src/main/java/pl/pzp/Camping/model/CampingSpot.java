@@ -1,17 +1,16 @@
 package pl.pzp.Camping.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import java.util.UUID;
 
 public class CampingSpot {
     private final UUID id;
-    @Min(100)
+    @Min(value = 100, message = "Minimum value is 100.")
     private final int basePrice;
-    @Min(1)
-    @Max(5)
+    @Min(value = 1, message = "Minimum value is 1.")
+    @Max(value = 5, message = "Maximum value is 5.")
     private final int guestsLimit;
 
     public CampingSpot(@JsonProperty("id") UUID id ,

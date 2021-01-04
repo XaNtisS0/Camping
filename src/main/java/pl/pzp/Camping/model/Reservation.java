@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.UUID;
 
 public class Reservation {
-
-    private UUID id;
-    @NotNull
+    private final UUID id;
+    @NotNull(message = "Clients list can't be null.")
     private final List<Client> clients;
-    @NotNull
+    @NotNull(message = "Camping spot can't be null.")
     private final CampingSpot spot;
 
     public Reservation(UUID id, List<Client> clients, CampingSpot spot) {
