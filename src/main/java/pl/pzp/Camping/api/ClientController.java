@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.Client;
 import pl.pzp.Camping.service.ClientService;
-
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,7 +43,7 @@ public class ClientController {
     }
 
     @PutMapping(path = "{id}")
-    public void clientToUpdateById(@PathVariable("id") UUID id, @Valid @RequestBody Client clientToUpdate ) {
+    public void clientToUpdateById(@PathVariable("id") UUID id, @NotNull @Valid @RequestBody Client clientToUpdate) {
         clientService.updateClientById(id, clientToUpdate);
     }
 

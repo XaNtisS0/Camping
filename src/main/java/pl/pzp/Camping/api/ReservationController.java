@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.pzp.Camping.model.Reservation;
 import pl.pzp.Camping.service.ReservationService;
-
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
 
@@ -41,7 +41,7 @@ public class ReservationController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateReservationById(@PathVariable("id") UUID id, @Valid @RequestBody Reservation reservation) {
+    public void updateReservationById(@PathVariable("id") UUID id, @NotNull @Valid @RequestBody Reservation reservation) {
         reservationService.updateReservationById(id, reservation);
     }
 }
