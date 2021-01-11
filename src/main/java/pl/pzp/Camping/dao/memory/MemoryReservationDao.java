@@ -12,7 +12,7 @@ import java.util.UUID;
 @Repository("memoryReservation")
 public class MemoryReservationDao implements ReservationDao {
 
-    private static List<Reservation> RL = new ArrayList<>();
+    private static  List<Reservation> RL = new ArrayList<>();
 
     @Override
     public int insertReservation(UUID id, Reservation reservation) {

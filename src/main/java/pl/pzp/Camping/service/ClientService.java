@@ -3,10 +3,11 @@ package pl.pzp.Camping.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import pl.pzp.Camping.dao.interfaces.ClientDao;
 import pl.pzp.Camping.model.Client;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -27,10 +28,11 @@ public class ClientService {
             if (clientDao.getAllClients().stream().anyMatch(client1 -> client1.getId() == client.getId())){
                 throw new Exception("There already is a client with this ID.");
             }
+            return clientDao.insertClient(client);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return clientDao.insertClient(client);
     }
 
     public List<Client> getAllClients() {
@@ -39,10 +41,11 @@ public class ClientService {
             if (clientDao.getAllClients().isEmpty()) {
                 throw new Exception("There are no saved Clients.");
             }
+            return clientDao.getAllClients();
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There are no saved Clients.");
         }
-        return clientDao.getAllClients();
     }
 
     public Optional<Client> getClientById(UUID id) {
@@ -51,11 +54,11 @@ public class ClientService {
             if (clientDao.getAllClients().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no client with this id.");
             }
+            return clientDao.selectClientById(id);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-
-        return clientDao.selectClientById(id);
     }
 
     public int deleteClientById(UUID id) {
@@ -64,10 +67,11 @@ public class ClientService {
             if (clientDao.getAllClients().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no client with this id.");
             }
+            return clientDao.deleteClientById(id);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return clientDao.deleteClientById(id);
     }
 
     public int updateClientById(UUID id, Client clientToUpdate) {
@@ -76,10 +80,11 @@ public class ClientService {
             if (clientDao.getAllClients().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no client with this id.");
             }
+            return clientDao.updateClientById(id, clientToUpdate);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return clientDao.updateClientById(id, clientToUpdate);
     }
 
 }

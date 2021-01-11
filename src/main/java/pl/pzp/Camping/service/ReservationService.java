@@ -2,10 +2,11 @@ package pl.pzp.Camping.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 import pl.pzp.Camping.dao.interfaces.ReservationDao;
 import pl.pzp.Camping.model.Reservation;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -34,10 +35,11 @@ public class ReservationService {
             if (reservationDao.getAllReservations().stream().anyMatch(reservation1 -> reservation1.getId() == reservation.getId())){
                 throw new Exception("There already is a reservation with this ID.");
             }
+            return reservationDao.insertReservation(reservation);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return reservationDao.insertReservation(reservation);
     }
 
     public List<Reservation> getAllReservations() {
@@ -46,10 +48,11 @@ public class ReservationService {
             if (reservationDao.getAllReservations().isEmpty()){
                 throw new Exception("There are no reservations made.");
             }
+            return reservationDao.getAllReservations();
         } catch (Exception e) {
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return reservationDao.getAllReservations();
     }
 
     public Optional<Reservation> getReservationById(UUID id) {
@@ -58,10 +61,11 @@ public class ReservationService {
             if (reservationDao.getAllReservations().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no reservation with this id.");
             }
+            return reservationDao.selectReservationById(id);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return reservationDao.selectReservationById(id);
     }
 
     public int deleteReservationById(UUID id) {
@@ -70,10 +74,11 @@ public class ReservationService {
             if (reservationDao.getAllReservations().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no reservation with this id.");
             }
+            return reservationDao.deleteReservation(id);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return reservationDao.deleteReservation(id);
     }
 
     public int updateReservationById(UUID id, Reservation reservationToUpdate) {
@@ -82,10 +87,11 @@ public class ReservationService {
             if (reservationDao.getAllReservations().stream().noneMatch(reservation -> reservation.getId() == id)){
                 throw new Exception("There is no reservation with this id.");
             }
+            return reservationDao.updateReservationById(id, reservationToUpdate);
         } catch (Exception e){
             e.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can't add.");
         }
-        return reservationDao.updateReservationById(id, reservationToUpdate);
     }
 
 }
